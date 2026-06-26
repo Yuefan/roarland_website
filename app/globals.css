@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --red:      #CC0000;
+  --red-dark: #A30000;
+  --black:    #0A0A0A;
+  --white:    #FFFFFF;
+  --gray:     #F4F4F4;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: #FFFFFF;
+  color: #0A0A0A;
+  overflow-x: hidden;
+}
+
+/* ── Marquee ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.marquee-track { animation: marquee 36s linear infinite; }
+.marquee-track-reverse { animation: marquee-reverse 42s linear infinite; }
+
+/* ── Scan line ── */
+@keyframes scan {
+  0%   { top: 0; }
+  100% { top: 100%; }
+}
+.scanline {
+  position: absolute;
+  left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+  animation: scan 7s linear infinite;
+  pointer-events: none;
+}
+
+/* ── Float ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+.float-svg { animation: float 5s ease-in-out infinite; }
+
+/* ── Massage wave rings ── */
+@keyframes wave-expand {
+  0%   { r: 18; opacity: 0.85; }
+  100% { r: 68; opacity: 0; }
+}
+.wave-ring.w1 { animation: wave-expand 2.4s ease-out infinite; }
+.wave-ring.w2 { animation: wave-expand 2.4s ease-out infinite 0.6s; }
+.wave-ring.w3 { animation: wave-expand 2.4s ease-out infinite 1.2s; }
+.wave-ring.w4 { animation: wave-expand 2.4s ease-out infinite 1.8s; }
+
+/* ── Mower blade ── */
+@keyframes blade-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.blade { animation: blade-spin 1.3s linear infinite; transform-origin: 200px 190px; }
+
+/* ── Mow trail ── */
+@keyframes path-draw {
+  from { stroke-dashoffset: 600; }
+  to   { stroke-dashoffset: 0; }
+}
+.mow-trail { animation: path-draw 4s linear infinite; }
+
+/* ── Pulse dot ── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+.pulse-d { animation: pulse-dot 1.4s ease-in-out infinite; }
+
+/* ── Grid BG ── */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ── Reveal animation ── */
+.will-reveal { opacity: 1; }
+
+@keyframes slide-in-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.will-reveal.is-visible {
+  animation: slide-in-up 0.6s ease both;
+}
+
+/* ── Red-bg borders ── */
+.border-white-10 { border-color: rgba(255,255,255,0.1); }
+.border-white-15 { border-color: rgba(255,255,255,0.15); }

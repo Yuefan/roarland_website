@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Raw source assets (already processed into public/)
+1.jpg
+2.jpg
+3.jpg
+image/
+tech/
+partner/
+
+# Old files
+index.html
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
